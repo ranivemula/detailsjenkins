@@ -1,0 +1,10 @@
+- hosts: localhost
+  tasks:
+    - pip:
+        name: boto3
+    - name: AMI creation for Ec2 instance
+      ec2_ami:
+        region: us-east-1
+        instance_id: i-055800328dc18a48f
+        wait: no
+        name: AMI by ansible script
