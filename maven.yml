@@ -1,0 +1,6 @@
+---
+- hosts: Localhosts
+  tasks: 
+    - name: install java
+      shell: sudo yum install java-1.8* -y
+

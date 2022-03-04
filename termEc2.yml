@@ -1,0 +1,17 @@
+---
+- name: localhosts
+  tasks:
+- name: terminated ec2 instance
+    - ec2:
+         state: 'terminate'
+         region: us-east-1
+         wait: yes
+         key_name: awskey
+         subnet_id: i-07056888406a2a246
+         instance_type: t2.micro
+         image: ami-123456
+         wait: yes
+         count: 1
+         vpc_subnet_id: subnet-052e42663fef2737f
+         assign_public_ip: ami-0c293f3f676ec4f90
+

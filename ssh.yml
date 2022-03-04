@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  tasks: 
+   - name: generate ssh key
+     shell: ssh-keygen
+  

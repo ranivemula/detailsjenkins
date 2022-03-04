@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Terminate instances that were previously launched
+      ec2:
+        state: 'terminate'
+        instance_ids: '{{ i-07056888406a2a246 }}'

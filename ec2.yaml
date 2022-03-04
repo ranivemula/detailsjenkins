@@ -1,0 +1,14 @@
+---
+- hosts: local host
+  tasks: 
+    - name: Create Ec2 instance
+      - ec2:
+          key_name: awskey
+          instance_type: t2.micro
+          image: subnet-052e42663fef2737f
+          region: us-east-1
+          wait: yes
+          count: 1
+          vpc_subnet_id: subnet-052e42663fef2737f
+          assign_public_ip: yes
+ 

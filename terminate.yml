@@ -1,0 +1,14 @@
+---
+- name: terminate instance
+  hosts: localhost
+  tasks: 
+- home: terminate instance
+      amazon.aws.ec2:
+        state: 'absent'
+        instance_id:  '{{ i-07056888406a2a246 }}'
+        region: us-east-1
+        iamge: ami-0c293f3f676ec4f90
+       
+
+
+

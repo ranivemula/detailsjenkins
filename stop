@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  tasks:
+    - name: terminated ec2 instance
+      ec2: 
+         key_name: awskey
+         image: ami-0c293f3f676ec4f90
+         instance_type: t2.micro
+         region: us-east-1
+         wait : yes
+         amazon.aws.ec2:
+         state: 'absent'
+         instance_id:  '
+         count: 1
+         vpc_subnet_id: i-07056888406a2a246
+         assign_public_ip : yes
+
+
+
