@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Install java
+      shell: sudo yum install java-1.8* -y
+    - name: Install wget command
+      shell: sudo yum -y install wget
+    - name: Install Amazon Linux extras
+      shell: sudo amazon-linux-extras install epel -y
+    - name: Downloading jenkins repo
+      shell: sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+    - name: Importing jenkins
+      shell: sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+    - name: Installing, starting and enabling Jenkins
+      shell: sudo yum -y install jenkins && sudo systemctl start jenkins && sudo systemctl enable jenkins
+    - name: Installing Git
+      shell: sudo yum install -y git
+    - name: Generating ssh key
+      openssh_keypair:
+        path: /home/ec2-user/.ssh/id_ssh_rsa
