@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  vars_files:
+    - vars.yml
+  tasks:
+    - name: Terminate ec2
+      ec2:
+        access_key: "{{ AccessKey }}"
+        secret_key: "{{ SecretKey }}"
+        instance_ids: i-0a37d2de923d5d57c
+        region: us-east-1
+        state: absent
