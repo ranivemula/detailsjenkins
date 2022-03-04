@@ -1,0 +1,18 @@
+- hosts: localhost
+  tasks:
+    - pip:
+        name: boto
+    - name: Adding EBS volume to Ec2 instance
+      ec2:
+        key_name: instance1
+        instance_type: t2.micro
+        region: us-east-1
+        image: ami-0c293f3f676ec4f90
+        wait: yes
+        count: 2
+        volumes:
+        - device_name: /dev/xvda
+          volume_size: 8
+        monitoring: yes
+        vpc_subnet_id: subnet-0828acb19ddf510c3
+        assign_public_ip: yes
